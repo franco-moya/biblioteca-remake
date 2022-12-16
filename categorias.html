@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/modal.css">
+    <title>Administrador de categorias</title>
+    <style>
+        .container-select button {
+            height: 3rem;
+            padding-inline: .5rem;
+            width: 15rem;
+            border-radius: .3rem;
+            font-size: 16px;
+            box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.274);
+            transition: .2s;
+        }
+
+        .container-select button:hover {
+            box-shadow: -3px 3px 2px rgba(5, 0, 0, 0.486);
+            margin-bottom: 5px;
+        }
+
+        .container-select button:active {
+            background-color: #000;
+            color: #fff;
+        }
+    </style>
+    
+</head>
+<body>
+    <nav>
+        <h1>Categorias</h1>
+        <a href="/index.html"><button>Inventario</button></a>
+    </nav>
+    <main>
+        <div class="container-select">
+            <button>Agregar nueva categoria</button>
+            <i class="fa-solid fa-magnifying-glass fa-2x"></i>
+            <input type="search" name="buscador" id="buscador">
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Img</th>
+                    <th class="titulo">Nombre de la categoria</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><i class="fa-solid fa-book fa-2x"></i></td>
+                    <td class="titulo">Libros</td>
+                    <td class="opciones">
+                        <i class="fa-sharp fa-solid fa-pen-to-square fa-lg"></i>
+                        <i class="fa-solid fa-trash fa-lg"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <i class="fa-solid fa-box-open fa-2x"></i>
+                    </td>
+                    <td class="titulo">Cajas</td>
+                    <td class="opciones">
+                        <i class="fa-sharp fa-solid fa-pen-to-square fa-lg"></i>
+                        <i class="fa-solid fa-trash fa-lg"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <i class="fa-solid fa-face-smile fa-2x"></i>
+                    </td>
+                    <td class="titulo">Juguetes</td>
+                    <td class="opciones">
+                        <i class="fa-sharp fa-solid fa-pen-to-square fa-lg"></i>
+                        <i class="fa-solid fa-trash fa-lg"></i>
+                    </td>
+                </tr>
+
+
+
+
+
+
+            </tbody>
+        </table>
+    </main>
+    <script src="https://kit.fontawesome.com/d4a22d132c.js" crossorigin="anonymous"></script>
+</body>
+</html>

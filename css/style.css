@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: #ffffff;
+    padding: 2rem;
+    /* background: linear-gradient(to bottom, #fb4444 0%, #ff5a5a 50%, #bebebe 50%); */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    margin-bottom: 2rem;
+}
+
+nav h1 {
+    font-size: 36px;
+    color: #E65758;
+    text-shadow: -1px 2px 2px #000;
+}
+
+nav button {
+    width: 11rem;
+    height: 3rem;
+    background: #E65758;
+    font-size: 20px;
+    color: #f2f2f2;
+    border-radius: .3rem;
+}
+
+main {
+    height: 90%;
+    border-radius: .3rem;
+    display: inline-flex;
+    overflow-y: scroll;
+    width: 100%;
+    flex-direction: column;
+    background: linear-gradient(to bottom right, #E65758, #771D32);
+    padding: 2rem 2rem 2rem 2rem;
+    gap: 2rem;
+}
+
+main::-webkit-scrollbar {
+    width: 1rem;
+}
+
+main::-webkit-scrollbar-thumb {
+    border-radius: .5rem;
+    background: #E65758;
+}
+
+.container-select {
+    gap: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    height: 3rem;
+    align-items: center;
+}
+
+.container-select input {
+    border-radius: .3rem;
+    height: 3rem;
+    width: 100%;
+    box-shadow: -2px 2px 4px #00000046;
+    padding-inline: 0.5rem;
+    font-size: 20px;
+}
+
+select {
+    height: 3rem;
+    border-radius: 0.4rem;
+    width: 15rem;
+    font-size: 20px;
+    padding-left: 0.5rem;
+    box-shadow: -2px 2px 4px #00000046;
+}
+
+table {
+    text-align: start;
+    font-size: 20px;
+    border-radius: 0.4rem;
+    background-color: #ffffff;
+    box-shadow: -2px 2px 4px #00000046;
+}
+
+table tr {
+    height: 54px;
+}
+
+tr td:first-child {
+    width: 80px;
+    text-align: center;
+
+}
+
+thead {
+    text-shadow: -1px 1px 2px #000000da;
+    background: #E65758;
+    color: #fff;
+}
+
+tbody tr {
+    transition: 0.3s;
+    
+}
+
+tbody tr:hover {
+    background:#e7e7e7;
+}
+
+.titulo {
+    padding-left: .5rem;
+}
+
+.disponibilidad {
+    width: 190px;
+    text-align: center;
+}
+
+.opciones {
+    text-align: center;
+    width: 150px;
+}
+
+.opciones i {
+    transition: .2s;
+}
+
+.opciones i:hover {
+    color: #E65758;
+}
