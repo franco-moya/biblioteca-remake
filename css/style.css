@@ -130,8 +130,10 @@ tbody tr:hover {
 
 .opciones i {
     transition: .2s;
+    cursor: pointer;
 }
 
 .opciones i:hover {
     color: #E65758;
+    transform: scale(1.15);
 }
