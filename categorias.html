@@ -37,7 +37,7 @@
     </nav>
     <main>
         <div class="container-select">
-            <button>Agregar nueva categoria</button>
+            <a href="#" class="cta">Agregar categoria</a>
             <i class="fa-solid fa-magnifying-glass fa-2x"></i>
             <input type="search" name="buscador" id="buscador">
         </div>
@@ -87,6 +87,25 @@
             </tbody>
         </table>
     </main>
+
+    <div class="modal-container">
+        <div class="modal modal-close">
+            <p class="close">X</p>
+            <h2>Agregar una categoria nueva</h2>
+            <div class="modal-textos">
+                <form action="">
+                    <label for="categoria">Nombre</label>
+                    <input type="text" name="categoria" id="input-categoria">
+                    <label for="img">Imagen</label>
+                    <input type="file" name="imagen" id="img-categoria" value="Adjuntar documento">
+                    <button type="submit">Agregar</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
     <script src="https://kit.fontawesome.com/d4a22d132c.js" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
 </body>
 </html>
