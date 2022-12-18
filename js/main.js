@@ -20,7 +20,7 @@ cerrar.addEventListener("click", function() {
 });
 
 window.addEventListener("click", function(e) {
-    console.log(e.target);
+    // console.log(e.target);
 
     if (e.target == modalC) {
         modal.classList.toggle("modal-close");
@@ -31,3 +31,7 @@ window.addEventListener("click", function(e) {
     };
     
 });
+
+function testear() {
+    console.log("testeando...")
+}
