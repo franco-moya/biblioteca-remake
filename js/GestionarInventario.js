@@ -27,11 +27,12 @@ function CargarArticulos(arr) {
     arr.forEach(articulo => {
         prestada = articulo["cantidad_prestada"]
         total = articulo["cantidad_total"]
+        disponible = total - prestada
         TablaArticulos.innerHTML += `
             <tr>
                     <td><i class="fa-solid fa-book fa-2x"></i></td>
                     <td class="titulo">${articulo["nombre_articulo"]}</td>
-                    <td class="disponibilidad">${articulo["cantidad_prestada"]} / ${articulo["cantidad_total"]}</td>
+                    <td class="disponibilidad">${disponible} / ${total}</td>
                     <td class="opciones">
                         <i class="fa-solid fa-plus fa-lg"></i>
                         <i class="fa-solid fa-square-minus fa-lg"></i>
