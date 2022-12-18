@@ -7,6 +7,7 @@
     <title>Diseño N°1</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/modal.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -26,6 +27,7 @@
         </menu>
         <main>
             <div class="container-select">
+                <a href="#" class="cta">Agregar articulo</a>
                 <select name="select">
                     <option value="value1" selected>Categorias</option>
                     <option value="value2">Libros</option>
@@ -274,8 +276,34 @@
             </table>
         </main>
     </div>
+
+    <div class="modal-container">
+        <div class="modal modal-close">
+            <p class="close">X</p>
+            <h2>Agregar un articulo nuevo</h2>
+            <div class="modal-textos">
+                <form action="">
+                    <label for="">Nombre</label>
+                    <input type="text" name="nombre" id="input-nombre">
+
+                    <label for="cantidad">Cantidad</label>
+                    <input type="number" name="cantidad" id="input-cantidad">
+
+                    <label for="select">Categoria</label>
+                    <select name="select">
+                        <option value="value2" selected>Libros</option>
+                        <option value="value3">Cajas</option>
+                        <option value="value3">Juguetes</option>
+                    </select>
+                    <button type="submit">Agregar</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
     
     <script src="https://kit.fontawesome.com/d4a22d132c.js" crossorigin="anonymous"></script>
     <script src="menu.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

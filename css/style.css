@@ -91,7 +91,7 @@ main::-webkit-scrollbar-thumb {
     text-shadow: -2px 2px 2px #000000a4;
 }
 
-select {
+.container-select select {
     height: 3rem;
     border-radius: 0.4rem;
     width: 15rem;
