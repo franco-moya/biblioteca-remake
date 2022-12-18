@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Administrador de categorias</title>
     <link rel="stylesheet" href="css/menu.css">
+    <script src="js/ruta.js"></script>
+    <script src="js/seguridad.js"></script>
 
 </head>
 <body>
@@ -21,9 +23,9 @@
             <h2>Menu</h2>
             <a href="index.html">Inventario</a>
             <a href="categorias.html">Administrar categorias</a>
-            <a href="src/biblioteca.html">Biblioteca alumnos</a>
+            <a href="src/biblioteca.html" target="_blank" rel="noopener noreferrer">Biblioteca alumnos</a>
             <a href="#">Tutoriales</a>
-            <a href="#">Cerrar Sesión</a>
+            <a href="src/login.html" onclick="quitarPermisos()">Cerrar Sesión</a>
         </menu>
         <main>
             <div class="container-select">
@@ -99,5 +101,6 @@
     <script src="https://kit.fontawesome.com/d4a22d132c.js" crossorigin="anonymous"></script>
     <script src="js/menu.js"></script>
     <script src="js/main.js"></script>
+    
 </body>
 </html>

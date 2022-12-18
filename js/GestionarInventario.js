@@ -1,7 +1,5 @@
-let ruta = './db/GestionarInventario.php'
 
-TablaArticulos = document.getElementById("TablaArticulos")
-
+TablaArticulos = document.getElementById("TablaArticulos");
 
 function objetoFetch(datos) {
     return {

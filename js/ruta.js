@@ -1,0 +1,1 @@
+let ruta = './db/GestionarInventario.php';

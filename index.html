@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diseño N°1</title>
+    <script src="js/ruta.js"></script>
+    <script src="js/seguridad.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/modal.css">
@@ -21,9 +23,9 @@
             <h2>Menu</h2>
             <a href="index.html">Inventario</a>
             <a href="categorias.html">Administrar categorias</a>
-            <a href="src/biblioteca.html">Biblioteca alumnos</a>
+            <a href="src/biblioteca.html" target="_blank" rel="noopener noreferrer">Biblioteca alumnos</a>
             <a href="#">Tutoriales</a>
-            <a href="#">Cerrar Sesión</a>
+            <a href="src/login.html" onclick="quitarPermisos()">Cerrar Sesión</a>
         </menu>
         <main>
             <div class="container-select">
@@ -42,7 +44,7 @@
                     <tr>
                         <th>Tipo</th>
                         <th class="titulo">Título del artículo</th>
-                        <th>Disponibilidad</th>
+                        <th>Disponibles</th>
                         <th>Opciones</th>
                     </tr>
                 </thead>
@@ -82,5 +84,6 @@
     <script src="js/menu.js"></script>
     <script src="js/main.js"></script>
     <script src="js/GestionarInventario.js"></script>
+    
 </body>
 </html>
