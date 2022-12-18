@@ -6,14 +6,22 @@
 }
 
 body {
+    background: linear-gradient(to bottom right, #E65758, #771D32);
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor {
     height: 100vh;
-    background: #ffffff;
     padding: 2rem;
-    /* background: linear-gradient(to bottom, #fb4444 0%, #ff5a5a 50%, #bebebe 50%); */
+    min-width: none;
+    width: 1200px;
+    max-width: 1200px;
 }
 
 nav {
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-between;
     font-size: 20px;
     margin-bottom: 2rem;
@@ -21,17 +29,23 @@ nav {
 
 nav h1 {
     font-size: 36px;
-    color: #E65758;
+    color: #ffffff;
     text-shadow: -1px 2px 2px #000;
 }
 
 nav button {
     width: 11rem;
     height: 3rem;
-    background: #E65758;
+    background: #fc948a;
     font-size: 20px;
     color: #f2f2f2;
+    text-shadow: 1px 1px 1px #000;
     border-radius: .3rem;
+    border: none;
+}
+
+nav button:active {
+    background: #fc948a7e;
 }
 
 main {
@@ -41,7 +55,7 @@ main {
     overflow-y: scroll;
     width: 100%;
     flex-direction: column;
-    background: linear-gradient(to bottom right, #E65758, #771D32);
+    background-image: linear-gradient(to bottom right, #fc948a 0%, #f8dfdf 100%);
     padding: 2rem 2rem 2rem 2rem;
     gap: 2rem;
 }
@@ -70,6 +84,11 @@ main::-webkit-scrollbar-thumb {
     box-shadow: -2px 2px 4px #00000046;
     padding-inline: 0.5rem;
     font-size: 20px;
+}
+
+.container-select i {
+    color: #fff;
+    text-shadow: -2px 2px 2px #000000a4;
 }
 
 select {

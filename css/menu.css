@@ -1,0 +1,25 @@
+menu {
+    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+    width: 220px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 1.5rem 0;
+    font-size: 22px;
+    border-radius: .3rem;
+
+    position: absolute;
+    left: -250px;
+    visibility: visible;
+    transition: .5s;
+}
+
+menu h2 {
+    color: #E65758;
+}
+
+menu a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/modal.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Administrador de categorias</title>
+    <link rel="stylesheet" href="css/menu.css">
     <style>
         .container-select button {
             height: 3rem;
@@ -32,62 +33,69 @@
     
 </head>
 <body>
-    <nav>
-        <h1>Categorias</h1>
-        <a href="index.html"><button>Inventario</button></a>
-    </nav>
-    <main>
-        <div class="container-select">
-            <a href="#" class="cta">Agregar categoria</a>
-            <i class="fa-solid fa-magnifying-glass fa-2x"></i>
-            <input type="search" name="buscador" id="buscador">
-        </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Img</th>
-                    <th class="titulo">Nombre de la categoria</th>
-                    <th>Opciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><i class="fa-solid fa-book fa-2x"></i></td>
-                    <td class="titulo">Libros</td>
-                    <td class="opciones">
-                        <i class="fa-sharp fa-solid fa-pen-to-square fa-lg"></i>
-                        <i class="fa-solid fa-trash fa-lg"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <i class="fa-solid fa-box-open fa-2x"></i>
-                    </td>
-                    <td class="titulo">Cajas</td>
-                    <td class="opciones">
-                        <i class="fa-sharp fa-solid fa-pen-to-square fa-lg"></i>
-                        <i class="fa-solid fa-trash fa-lg"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <i class="fa-solid fa-face-smile fa-2x"></i>
-                    </td>
-                    <td class="titulo">Juguetes</td>
-                    <td class="opciones">
-                        <i class="fa-sharp fa-solid fa-pen-to-square fa-lg"></i>
-                        <i class="fa-solid fa-trash fa-lg"></i>
-                    </td>
-                </tr>
-
-
-
-
-
-
-            </tbody>
-        </table>
-    </main>
+    <div class="contenedor">
+        <nav>
+            <h1>Categorias</h1>
+            <button id="btn">Menu</button>
+        </nav>
+        <menu id="menu">
+            <h2>Menu</h2>
+            <a href="index.html">Inventario</a>
+            <a href="categorias.html">Categorias</a>
+        </menu>
+        <main>
+            <div class="container-select">
+                <a href="#" class="cta">Agregar categoria</a>
+                <i class="fa-solid fa-magnifying-glass fa-2x"></i>
+                <input type="search" name="buscador" id="buscador">
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Img</th>
+                        <th class="titulo">Nombre de la categoria</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i class="fa-solid fa-book fa-2x"></i></td>
+                        <td class="titulo">Libros</td>
+                        <td class="opciones">
+                            <i class="fa-sharp fa-solid fa-pen-to-square fa-lg"></i>
+                            <i class="fa-solid fa-trash fa-lg"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="fa-solid fa-box-open fa-2x"></i>
+                        </td>
+                        <td class="titulo">Cajas</td>
+                        <td class="opciones">
+                            <i class="fa-sharp fa-solid fa-pen-to-square fa-lg"></i>
+                            <i class="fa-solid fa-trash fa-lg"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="fa-solid fa-face-smile fa-2x"></i>
+                        </td>
+                        <td class="titulo">Juguetes</td>
+                        <td class="opciones">
+                            <i class="fa-sharp fa-solid fa-pen-to-square fa-lg"></i>
+                            <i class="fa-solid fa-trash fa-lg"></i>
+                        </td>
+                    </tr>
+    
+    
+    
+    
+    
+    
+                </tbody>
+            </table>
+        </main>
+    </div>
 
     <div class="modal-container">
         <div class="modal modal-close">
@@ -108,5 +116,6 @@
 
     <script src="https://kit.fontawesome.com/d4a22d132c.js" crossorigin="anonymous"></script>
     <script src="main.js"></script>
+    <script src="menu.js"></script>
 </body>
 </html>
