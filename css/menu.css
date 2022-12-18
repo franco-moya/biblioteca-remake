@@ -1,16 +1,17 @@
 menu {
     background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
-    width: 220px;
+    width: 300px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
     gap: .5rem;
     padding: 1.5rem 0;
-    font-size: 22px;
+    padding-left: 3rem;
+    font-size: 20px;
     border-radius: .3rem;
 
     position: absolute;
-    left: -250px;
+    left: -300px;
     visibility: visible;
     transition: .5s;
 }
@@ -22,4 +23,9 @@ menu h2 {
 menu a {
     text-decoration: none;
     color: rgb(0, 0, 0);
+    transition: .2s;
+}
+
+menu a:hover {
+    margin-left: .8rem;
 }
