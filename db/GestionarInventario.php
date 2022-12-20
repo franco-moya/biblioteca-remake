@@ -10,6 +10,10 @@ switch($operacion){
         $res = inventario::ListarUsuarios();
         echo $res;
         break;
+    case 'ListarLibrosEnBiblioteca':
+        $res = inventario::ListarLibrosEnBiblioteca();
+        echo $res;
+        break;
     case 'EstadoAdmin':
         $res = inventario::ConsultarEstado();
         echo $res;

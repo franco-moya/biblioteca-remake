@@ -14,7 +14,19 @@ class inventario{
             $i++;
         }
         return json_encode($arreglo);
+    }
 
+    static public function ListarLibrosEnBiblioteca(){
+        $connect = Conexion::conectar();
+        $sql = "SELECT nombre_articulo nombre, (cantidad_total - cantidad_prestada) available, cantidad_total total FROM `articulos` WHERE id_categoria = 1 ORDER BY nombre_articulo ASC;";
+        $resultado = $connect -> query($sql);
+        $arreglo = [];
+        $i = 0;
+        while($fila = $resultado -> fetch_assoc()) {
+            $arreglo[$i] = $fila;
+            $i++;
+        }
+        return json_encode($arreglo);
     }
 
     static public function ListarUsuarios(){
