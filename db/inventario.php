@@ -82,4 +82,17 @@ class inventario{
         }
         return json_encode($arreglo);    
     }
+
+    static public function BuscadorArticulos($texto){
+        $connect = Conexion::conectar();
+        $sql = "SELECT * FROM articulos WHERE nombre_articulo LIKE '%$texto%' ORDER BY nombre_articulo ASC;";
+        $resultado = $connect -> query($sql);
+        $arreglo = [];
+        $i = 0;
+        while($fila = $resultado -> fetch_assoc()) {
+            $arreglo[$i] = $fila;
+            $i++;
+        }
+        return json_encode($arreglo);    
+    }
 }

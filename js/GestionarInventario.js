@@ -1,5 +1,5 @@
-
-TablaArticulos = document.getElementById("TablaArticulos");
+TablaArticulos = document.getElementById("TablaArticulos")
+ListarArticulos()
 
 function objetoFetch(datos) {
     return {
@@ -7,8 +7,6 @@ function objetoFetch(datos) {
         body: datos
     }
 }
-
-ListarArticulos()
 
 function ListarArticulos() {
     let datos = new FormData()
@@ -41,3 +39,20 @@ function CargarArticulos(arr) {
         `
     })
 }
+
+function BuscarArticuloPorSuNombre(texto){
+    let datos = new FormData()
+    datos.append("tipoOperacion", "BuscarUnArticulo")
+    datos.append("texto",texto)
+    fetch('./db/GestionarInventario.php', objetoFetch(datos))
+        .then(response => response.json())
+        .then(libros => {
+            CargarArticulos(libros);
+        })
+}
+
+let buscador = document.querySelector('#buscador')
+buscador.addEventListener('keyup', e => {
+    let cadena = buscador.value
+    BuscarArticuloPorSuNombre(cadena)
+})
