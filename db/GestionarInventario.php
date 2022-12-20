@@ -14,6 +14,11 @@ switch($operacion){
         $res = inventario::ListarLibrosEnBiblioteca();
         echo $res;
         break;
+    case 'BuscarUnLibro':
+        $texto = $_POST["texto"];
+        $res = inventario::BuscadorSoloLibros($texto);
+        echo $res;
+        break;
     case 'EstadoAdmin':
         $res = inventario::ConsultarEstado();
         echo $res;

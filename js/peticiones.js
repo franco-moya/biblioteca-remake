@@ -37,3 +37,20 @@ function imprimirLibros(libros) {
         `
     })
 }
+
+function BuscarLibrosPorSuNombre(texto){
+    let datos = new FormData()
+    datos.append("tipoOperacion", "BuscarUnLibro")
+    datos.append("texto",texto)
+    fetch(ruta, objetoFetch(datos))
+        .then(response => response.json())
+        .then(libros => {
+            imprimirLibros(libros)
+        })
+}
+
+let buscador = document.querySelector('#buscador')
+buscador.addEventListener('keyup', e => {
+    let cadena = buscador.value
+    BuscarLibrosPorSuNombre(cadena)
+})
