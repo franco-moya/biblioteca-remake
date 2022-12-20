@@ -95,9 +95,15 @@ class inventario{
         return json_encode($arreglo);    
     }
 
-    static public function BuscadorArticulos($texto){
+    static public function BuscadorArticulos($texto, $categoria){
         $connect = Conexion::conectar();
-        $sql = "SELECT * FROM articulos WHERE nombre_articulo LIKE '%$texto%' ORDER BY nombre_articulo ASC;";
+        
+        if ($categoria == 0) {
+            $sql = "SELECT * FROM articulos WHERE nombre_articulo LIKE '%$texto%' ORDER BY nombre_articulo ASC;";
+        } else {
+            $sql = "SELECT * FROM articulos WHERE nombre_articulo LIKE '%$texto%' AND id_categoria = $categoria ORDER BY nombre_articulo ASC;";
+        }
+        
         $resultado = $connect -> query($sql);
         $arreglo = [];
         $i = 0;

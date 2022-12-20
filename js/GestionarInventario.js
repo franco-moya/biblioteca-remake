@@ -1,5 +1,7 @@
-TablaArticulos = document.getElementById("TablaArticulos")
+let TablaArticulos = document.getElementById("TablaArticulos")
 
+let selectInventario = document.getElementById("select")
+let selectModal = document.getElementById("select-categorias")
 
 function objetoFetch(datos) {
     return {
@@ -43,15 +45,20 @@ function CargarArticulos(arr) {
 }
 
 function BuscarArticuloPorSuNombre(texto){
+    let select = document.getElementById("select")
+    let categoria = select.value
+    if (categoria == "") {
+        categoria = 0
+    }
     let datos = new FormData()
     datos.append("tipoOperacion", "BuscarUnArticulo")
     datos.append("texto",texto)
+    datos.append("categoria", categoria)
     fetch('./db/GestionarInventario.php', objetoFetch(datos))
         .then(response => response.json())
         .then(libros => {
             CargarArticulos(libros);
         })
-    buscadorOn = true
 }
 
 let buscador = document.querySelector('#buscador')
@@ -156,4 +163,29 @@ function sumarUnidad(id, disponible, total, prestados) {
             })
 
     }
+}
+
+rellenarSelectCategorias()
+function rellenarSelectCategorias() {
+    let datos = new FormData()
+    datos.append("tipoOperacion", "ListarCategorias")
+    fetch(ruta, objetoFetch(datos))
+        .then(response => response.json())
+        .then(categorias => {
+            rellenarOpciones(categorias, selectInventario, true)
+            rellenarOpciones(categorias, selectModal, false)
+        })
+}
+
+function rellenarOpciones(categorias, select, ok) {
+    if (ok) {
+        select.innerHTML = '<option value="0" selected>Categorias</option>'
+    }
+    categorias.forEach(categoria => {
+        id = categoria["id_categoria"]
+        nombre = categoria["categoria"]
+        select.innerHTML += `
+        <option value="${id}">${nombre}</option>
+        `
+    })
 }

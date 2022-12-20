@@ -25,7 +25,8 @@ switch($operacion){
         break;
     case 'BuscarUnArticulo':
         $texto = $_POST["texto"];
-        $res = inventario::BuscadorArticulos($texto);
+        $categoria = $_POST["categoria"];
+        $res = inventario::BuscadorArticulos($texto, $categoria);
         echo $res;
         break;
     case 'BuscarUnaCategoria':
