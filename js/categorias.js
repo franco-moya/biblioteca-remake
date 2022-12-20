@@ -23,7 +23,7 @@ function imprimirCategorias(categorias) {
             <td class="titulo">${nombre}</td>
             <td class="opciones">
                 <i onclick="" class="fa-sharp fa-solid fa-pen-to-square fa-lg"></i>
-                <i onclick="eliminarCategoria(${id})" class="fa-solid fa-trash fa-lg"></i>
+                <i onclick="confirmarEliminar(${id})" class="fa-solid fa-trash fa-lg"></i>
             </td>
         </tr>
         `
@@ -58,6 +58,13 @@ function ingresarCategoria() {
         if (r.ok) {
             console.log("Ingreso exitoso")
             BuscarCategoriaPorSuNombre(cadena)
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: '¡Categoria Ingresada!',
+                showConfirmButton: false,
+                timer: 1500
+              })
         } else {
             console.log("Hubo un error al ingresar")
         }
@@ -77,4 +84,26 @@ function eliminarCategoria(id) {
                 console.log("Hubo un error al eliminar")
             }
         })
+}
+
+function confirmarEliminar(id) {
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¡No podrás recuperarlo!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33', 
+        cancelButtonColor: '#3085d6',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Sí ¡borrar!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            eliminarCategoria(id)
+            Swal.fire(
+                '¡Eliminado!',
+                'La categoría ya no existe en este sitio',
+                'success'
+            )
+        }
+      })
 }

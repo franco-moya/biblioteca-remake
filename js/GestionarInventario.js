@@ -37,7 +37,7 @@ function CargarArticulos(arr) {
                         <i onclick="sumarUnidad(${id}, ${disponible}, ${total}, ${prestada})" class="fa-solid fa-plus fa-lg"></i>
                         <i onclick="restarUnidad(${id}, ${disponible}, ${total}, ${prestada})" class="fa-solid fa-square-minus fa-lg"></i>
                         <i class="fa-sharp fa-solid fa-pen-to-square fa-lg"></i>
-                        <i onclick="eliminarArticulo(${id})" class="fa-solid fa-trash fa-lg"></i>
+                        <i onclick="confirmarEliminar(${id})" class="fa-solid fa-trash fa-lg"></i>
                     </td>
             </tr>
         `
@@ -88,6 +88,13 @@ function ingresarArticulo() {
         if (r.ok) {
             console.log("Ingreso exitoso")
             BuscarArticuloPorSuNombre(cadena)
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: '¡Artículo Ingresado!',
+                showConfirmButton: false,
+                timer: 1500
+              })
         } else {
             console.log("Hubo un error al ingresar")
         }
@@ -107,6 +114,28 @@ function eliminarArticulo(id) {
                 console.log("Hubo un error al eliminar")
             }
         })
+}
+
+function confirmarEliminar(id) {
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¡No podrás recuperarlo!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33', 
+        cancelButtonColor: '#3085d6',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Sí ¡borrar!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            eliminarArticulo(id)
+            Swal.fire(
+                '¡Eliminado!',
+                'El registro ya no existe en este sitio',
+                'success'
+            )
+        }
+      })
 }
 
 function restarUnidad(id, disponible, total, prestados) {
