@@ -1,5 +1,5 @@
 TablaArticulos = document.getElementById("TablaArticulos")
-ListarArticulos()
+
 
 function objetoFetch(datos) {
     return {
@@ -21,19 +21,21 @@ function ListarArticulos() {
 function CargarArticulos(arr) {
     TablaArticulos.innerHTML = ` `
     arr.forEach(articulo => {
+        id = articulo["id_articulo"]
+        titulo = articulo["nombre_articulo"]
         prestada = articulo["cantidad_prestada"]
         total = articulo["cantidad_total"]
         disponible = total - prestada
         TablaArticulos.innerHTML += `
-            <tr>
-                    <td><i class="fa-solid fa-book fa-2x"></i></td>
-                    <td class="titulo">${articulo["nombre_articulo"]}</td>
-                    <td class="disponibilidad">${disponible} / ${total}</td>
+            <tr id="fila-${id}">
+                    <td>${id}</i></td>
+                    <td class="titulo">${titulo}</td>
+                    <td class="disponibilidad" id="dato-${id}">${disponible} / ${total}</td>
                     <td class="opciones">
-                        <i class="fa-solid fa-plus fa-lg"></i>
-                        <i class="fa-solid fa-square-minus fa-lg"></i>
+                        <i onclick="sumarUnidad(${id}, ${disponible}, ${total}, ${prestada})" class="fa-solid fa-plus fa-lg"></i>
+                        <i onclick="restarUnidad(${id}, ${disponible}, ${total}, ${prestada})" class="fa-solid fa-square-minus fa-lg"></i>
                         <i class="fa-sharp fa-solid fa-pen-to-square fa-lg"></i>
-                        <i class="fa-solid fa-trash fa-lg"></i>
+                        <i onclick="eliminarArticulo(${id})" class="fa-solid fa-trash fa-lg"></i>
                     </td>
             </tr>
         `
@@ -49,10 +51,109 @@ function BuscarArticuloPorSuNombre(texto){
         .then(libros => {
             CargarArticulos(libros);
         })
+    buscadorOn = true
 }
 
 let buscador = document.querySelector('#buscador')
+let cadena = ''
+BuscarArticuloPorSuNombre(cadena)
+
 buscador.addEventListener('keyup', e => {
-    let cadena = buscador.value
+    cadena = buscador.value
     BuscarArticuloPorSuNombre(cadena)
 })
+
+function ingresarArticulo() {
+    let inputNombre = document.getElementById("input-nombre")
+    let inputCantidad = document.getElementById("input-cantidad")
+    let selectCategory = document.getElementById("select-categorias")
+
+    let nombre =  inputNombre.value
+    let cantidad = inputCantidad.value 
+    let categoria = selectCategory.value
+    let datos = new FormData()
+    datos.append("tipoOperacion", "IngresarUnArticulo")
+    datos.append("nombre", nombre)
+    datos.append("cantidad", cantidad)
+    datos.append("categoria", categoria)
+    fetch(ruta, objetoFetch(datos))
+    .then(r => {
+        if (r.ok) {
+            console.log("Ingreso exitoso")
+            BuscarArticuloPorSuNombre(cadena)
+        } else {
+            console.log("Hubo un error al ingresar")
+        }
+    })
+}
+
+function eliminarArticulo(id) {
+    let datos = new FormData()
+    datos.append("tipoOperacion", "EliminarUnArticulo")
+    datos.append("id",id)
+    fetch(ruta, objetoFetch(datos))
+        .then(r => {
+            if (r.ok) {
+                console.log("Articulo eliminado")
+                BuscarArticuloPorSuNombre(cadena)
+            } else {
+                console.log("Hubo un error al eliminar")
+            }
+        })
+}
+
+function restarUnidad(id, disponible, total, prestados) {
+
+    idDisponibles = "dato-" + id
+    element = document.getElementById(idDisponibles)
+    
+    if (total > prestados > 0) {
+        prestados = prestados + 1
+        disponible = disponible - 1
+        element.innerHTML = `${disponible} / ${total}`
+
+        let datos = new FormData()
+        datos.append("tipoOperacion", "actualizarUnidadDelArticulo")
+        datos.append("id",id)
+        datos.append("prestados",prestados)
+        
+        fetch(ruta, objetoFetch(datos))
+            .then(r => {
+                if (r.ok) {
+                    console.log("Resta exitosa")
+                    BuscarArticuloPorSuNombre(cadena)
+                } else {
+                    console.log("Hubo un error al restar")
+                }
+            })
+
+    }
+}
+
+function sumarUnidad(id, disponible, total, prestados) {
+
+    idDisponibles = "dato-" + id
+    element = document.getElementById(idDisponibles)
+    
+    if (total > disponible) {
+        prestados = prestados - 1 
+        disponible = disponible + 1
+        element.innerHTML = `${disponible} / ${total}`
+
+        let datos = new FormData()
+        datos.append("tipoOperacion", "actualizarUnidadDelArticulo")
+        datos.append("id",id)
+        datos.append("prestados",prestados)
+        
+        fetch(ruta, objetoFetch(datos))
+            .then(r => {
+                if (r.ok) {
+                    console.log("suma exitosa")
+                    BuscarArticuloPorSuNombre(cadena)
+                } else {
+                    console.log("Hubo un error al sumar")
+                }
+            })
+
+    }
+}

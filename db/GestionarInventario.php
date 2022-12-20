@@ -33,6 +33,28 @@ switch($operacion){
         $res = inventario::BuscadorCategorias($texto);
         echo $res;
         break;
+    case 'IngresarUnArticulo':
+        $nombre = $_POST["nombre"];
+        $cantidad = $_POST["cantidad"];
+        $categoria = $_POST["categoria"];
+        $res = inventario::IngresarArticulo($nombre, $cantidad, $categoria);
+        echo $res;
+        break;
+    case 'IngresarUnaCategoria':
+        $categoria = $_POST["categoria"];
+        $res = inventario::IngresarCategoria($categoria);
+        echo $res;
+        break;
+    case 'EliminarUnArticulo':
+        $id = $_POST["id"];
+        $res = inventario::EliminarArticulo($id);
+        echo $res;
+        break;
+    case 'EliminarUnaCategoria':
+        $id = $_POST["id"];
+        $res = inventario::EliminarCategoria($id);
+        echo $res;
+        break;
     case 'EstadoAdmin':
         $res = inventario::ConsultarEstado();
         echo $res;
@@ -43,6 +65,12 @@ switch($operacion){
         break;
     case 'quitarPermisos':
         $res = inventario::QuitarPermisos();
+        echo $res;
+        break;
+    case 'actualizarUnidadDelArticulo':
+        $id = $_POST["id"];
+        $prestados = $_POST["prestados"];
+        $res = inventario::ModificarUnidad($id, $prestados);
         echo $res;
         break;
 }

@@ -77,7 +77,7 @@
 
 /*Formulario*/
 
-form {
+.form {
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
@@ -87,7 +87,7 @@ form {
     font-size: 18px;
 }
 
-form input {
+.form input {
     box-sizing: border-box;
     height: 2rem;
     font-size: 18px;
@@ -95,11 +95,11 @@ form input {
     padding-inline: .5rem;
 }
 
-form #img-categoria {
+.form #img-categoria {
     padding: 0;
 }
 
-form button {
+.form button {
     height: 2.5rem;
     width: 100%;
     font-size: 18px;
@@ -110,7 +110,7 @@ form button {
     margin-top: .5rem;
 }
 
-form select {
+.form select {
     height: 2rem;
     width: 100%;
     font-size: 18px;
@@ -141,7 +141,7 @@ form select {
         height: 20%;
     }
 
-    form {
+    .form {
         margin-inline: 8px;
     }
 }

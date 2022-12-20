@@ -42,35 +42,7 @@
                         <th>Opciones</th>
                     </tr>
                 </thead>
-                <tbody id="TablaCategorias">
-                    <!-- <tr>
-                        <td><i class="fa-solid fa-book fa-2x"></i></td>
-                        <td class="titulo">Libros</td>
-                        <td class="opciones">
-                            <i onclick="testear()" class="fa-sharp fa-solid fa-pen-to-square fa-lg"></i>
-                            <i class="fa-solid fa-trash fa-lg"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i class="fa-solid fa-box-open fa-2x"></i>
-                        </td>
-                        <td class="titulo">Cajas</td>
-                        <td class="opciones">
-                            <i onclick="testear()" class="fa-sharp fa-solid fa-pen-to-square fa-lg"></i>
-                            <i class="fa-solid fa-trash fa-lg"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i class="fa-solid fa-face-smile fa-2x"></i>
-                        </td>
-                        <td class="titulo">Juguetes</td>
-                        <td class="opciones">
-                            <i onclick="testear()" class="fa-sharp fa-solid fa-pen-to-square fa-lg"></i>
-                            <i class="fa-solid fa-trash fa-lg"></i>
-                        </td>
-                    </tr> -->    
+                <tbody id="TablaCategorias">  
                 </tbody>
             </table>
         </main>
@@ -81,13 +53,13 @@
             <p class="close">X</p>
             <h2>Agregar una categoria nueva</h2>
             <div class="modal-textos">
-                <form action="">
+                <div class="form">
                     <label for="categoria">Nombre</label>
                     <input type="text" name="categoria" id="input-categoria">
-                    <label for="img">Imagen</label>
-                    <input type="file" name="imagen" id="img-categoria" value="Adjuntar documento">
-                    <button type="submit">Agregar</button>
-                </form>
+                    <!-- <label for="img">Imagen</label>
+                    <input type="file" name="imagen" id="img-categoria" value="Adjuntar documento"> -->
+                    <button type="submit" onclick="ingresarCategoria()">Agregar</button>
+                </div>
             </div>
 
         </div>

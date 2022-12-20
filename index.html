@@ -43,7 +43,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Tipo</th>
+                        <th>ID</th>
                         <th class="titulo">Título del artículo</th>
                         <th>Disponibles</th>
                         <th>Opciones</th>
@@ -61,7 +61,7 @@
             <p class="close">X</p>
             <h2>Agregar un articulo nuevo</h2>
             <div class="modal-textos">
-                <form action="">
+                <div class="form">
                     <label for="">Nombre</label>
                     <input type="text" name="nombre" id="input-nombre">
 
@@ -69,13 +69,13 @@
                     <input type="number" name="cantidad" id="input-cantidad">
 
                     <label for="select">Categoria</label>
-                    <select name="select">
-                        <option value="value2" selected>Libros</option>
-                        <option value="value3">Cajas</option>
-                        <option value="value3">Juguetes</option>
+                    <select name="select" id="select-categorias">
+                        <option value="1" selected>Libros</option>
+                        <option value="2">Cajas</option>
+                        <option value="3">Juguetes</option>
                     </select>
-                    <button type="submit">Agregar</button>
-                </form>
+                    <button onclick="ingresarArticulo()" type="submit">Agregar</button>
+                </div>
             </div>
 
         </div>

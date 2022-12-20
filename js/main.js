@@ -31,7 +31,3 @@ window.addEventListener("click", function(e) {
     };
     
 });
-
-function testear() {
-    console.log("testeando...")
-}

@@ -44,7 +44,7 @@ class inventario{
 
     static public function ListarCategorias(){
         $connect = Conexion::conectar();
-        $sql = "SELECT * FROM categorias ORDER BY categoria ASC";
+        $sql = "SELECT * FROM categorias ORDER BY id_categoria ASC";
         $resultado = $connect -> query($sql);
         $arreglo = [];
         $i = 0;
@@ -110,7 +110,7 @@ class inventario{
 
     static public function BuscadorCategorias($texto){
         $connect = Conexion::conectar();
-        $sql = "SELECT * FROM categorias WHERE categoria LIKE '%$texto%' ORDER BY categoria ASC;";
+        $sql = "SELECT * FROM categorias WHERE categoria LIKE '%$texto%' ORDER BY id_categoria ASC;";
         $resultado = $connect -> query($sql);
         $arreglo = [];
         $i = 0;
@@ -119,5 +119,40 @@ class inventario{
             $i++;
         }
         return json_encode($arreglo);    
+    }
+
+    static public function IngresarArticulo($nombre, $cantidad, $categoria){
+        $connect = Conexion::conectar();
+        $sql = "INSERT INTO `articulos` (`id_articulo`, `nombre_articulo`, `id_categoria`, `cantidad_prestada`, `cantidad_total`) VALUES (NULL, '$nombre', '$categoria', '0', '$cantidad');";
+        $resultado = $connect -> query($sql);
+        return $resultado;    
+    }
+
+    static public function IngresarCategoria($categoria){
+        $connect = Conexion::conectar();
+        $sql = "INSERT INTO `categorias` (`id_categoria`, `categoria`, `imagen`) VALUES (NULL, '$categoria', '');";
+        $resultado = $connect -> query($sql);
+        return $resultado;    
+    }
+
+    static public function EliminarCategoria($id){
+        $connect = Conexion::conectar();
+        $sql = "DELETE FROM categorias WHERE `categorias`.`id_categoria` = $id";
+        $resultado = $connect -> query($sql);
+        return $resultado;    
+    }
+
+    static public function EliminarArticulo($id){
+        $connect = Conexion::conectar();
+        $sql = "DELETE FROM articulos WHERE `articulos`.`id_articulo` = $id";
+        $resultado = $connect -> query($sql);
+        return $resultado;    
+    }
+
+    static public function ModificarUnidad($id, $prestados){
+        $connect = Conexion::conectar();
+        $sql = "UPDATE articulos SET cantidad_prestada=$prestados WHERE id_articulo='$id'";
+        $resultado = $connect -> query($sql);
+        return $resultado;    
     }
 }
