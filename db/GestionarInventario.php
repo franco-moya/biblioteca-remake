@@ -10,6 +10,10 @@ switch($operacion){
         $res = inventario::ListarUsuarios();
         echo $res;
         break;
+    case 'ListarCategorias':
+        $res = inventario::ListarCategorias();
+        echo $res;
+        break;
     case 'ListarLibrosEnBiblioteca':
         $res = inventario::ListarLibrosEnBiblioteca();
         echo $res;
@@ -22,6 +26,11 @@ switch($operacion){
     case 'BuscarUnArticulo':
         $texto = $_POST["texto"];
         $res = inventario::BuscadorArticulos($texto);
+        echo $res;
+        break;
+    case 'BuscarUnaCategoria':
+        $texto = $_POST["texto"];
+        $res = inventario::BuscadorCategorias($texto);
         echo $res;
         break;
     case 'EstadoAdmin':

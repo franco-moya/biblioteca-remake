@@ -40,7 +40,19 @@ class inventario{
             $i++;
         }
         return json_encode($arreglo);
+    }
 
+    static public function ListarCategorias(){
+        $connect = Conexion::conectar();
+        $sql = "SELECT * FROM categorias ORDER BY categoria ASC";
+        $resultado = $connect -> query($sql);
+        $arreglo = [];
+        $i = 0;
+        while($fila = $resultado -> fetch_assoc()) {
+            $arreglo[$i] = $fila;
+            $i++;
+        }
+        return json_encode($arreglo);
     }
 
     static public function ConsultarEstado(){
@@ -86,6 +98,19 @@ class inventario{
     static public function BuscadorArticulos($texto){
         $connect = Conexion::conectar();
         $sql = "SELECT * FROM articulos WHERE nombre_articulo LIKE '%$texto%' ORDER BY nombre_articulo ASC;";
+        $resultado = $connect -> query($sql);
+        $arreglo = [];
+        $i = 0;
+        while($fila = $resultado -> fetch_assoc()) {
+            $arreglo[$i] = $fila;
+            $i++;
+        }
+        return json_encode($arreglo);    
+    }
+
+    static public function BuscadorCategorias($texto){
+        $connect = Conexion::conectar();
+        $sql = "SELECT * FROM categorias WHERE categoria LIKE '%$texto%' ORDER BY categoria ASC;";
         $resultado = $connect -> query($sql);
         $arreglo = [];
         $i = 0;
