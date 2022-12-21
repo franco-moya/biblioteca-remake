@@ -161,4 +161,18 @@ class inventario{
         $resultado = $connect -> query($sql);
         return $resultado;    
     }
+
+    static public function ActualizarCategoria($id, $categoria){
+        $connect = Conexion::conectar();
+        $sql = "UPDATE `categorias` SET `categoria` = '$categoria' WHERE `categorias`.`id_categoria` = $id;";
+        $resultado = $connect -> query($sql);
+        return $resultado;    
+    }
+
+    static public function ActualizarArticulo($id, $titulo, $total, $categoria){
+        $connect = Conexion::conectar();
+        $sql = "UPDATE `articulos` SET `nombre_articulo` = '$titulo', `id_categoria` = '$categoria', `cantidad_total` = '$total' WHERE `articulos`.`id_articulo` = $id;";
+        $resultado = $connect -> query($sql);
+        return $resultado;    
+    }
 }

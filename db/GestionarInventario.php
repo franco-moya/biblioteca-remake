@@ -74,4 +74,18 @@ switch($operacion){
         $res = inventario::ModificarUnidad($id, $prestados);
         echo $res;
         break;
+    case 'ActualizarUnaCategoria':
+        $id = $_POST["id"];
+        $categoria = $_POST["categoria"];
+        $res = inventario::ActualizarCategoria($id, $categoria);
+        echo $res;
+        break;
+    case 'ActualizarUnArticulo':
+        $id = $_POST["id"];
+        $total = $_POST["total"];
+        $titulo = $_POST["titulo"];
+        $categoria = $_POST["categoria"];
+        $res = inventario::ActualizarArticulo($id, $titulo, $total, $categoria);
+        echo $res;
+        break;
 }

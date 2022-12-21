@@ -22,7 +22,7 @@ function imprimirCategorias(categorias) {
             <td>${categoria["id_categoria"]}</td>
             <td class="titulo">${nombre}</td>
             <td class="opciones">
-                <i onclick="" class="fa-sharp fa-solid fa-pen-to-square fa-lg"></i>
+                <i onclick="abrirModal(), rellenarModal(${id},'${nombre}')" class="fa-sharp fa-solid fa-pen-to-square fa-lg"></i>
                 <i onclick="confirmarEliminar(${id})" class="fa-solid fa-trash fa-lg"></i>
             </td>
         </tr>
@@ -106,4 +106,38 @@ function confirmarEliminar(id) {
             )
         }
       })
+}
+
+let inputCategoria = document.getElementById("input-categoria-2")
+let inputIdCategoria = document.getElementById("id-categoria")
+function rellenarModal(id, titulo) {
+    inputCategoria.value = titulo
+    inputIdCategoria.value = id
+}
+
+function actualizarCategoria() {
+    let input = document.getElementById("input-categoria-2")
+    let inputID = document.getElementById("id-categoria")
+    let categoria = input.value
+    let id = inputID.value
+    let datos = new FormData()
+    datos.append("tipoOperacion", "ActualizarUnaCategoria")
+    datos.append("categoria", categoria)
+    datos.append("id", id)
+    fetch(ruta, objetoFetch(datos))
+    .then(r => {
+        if (r.ok) {
+            console.log("Actualización exitosa")
+            BuscarCategoriaPorSuNombre(cadena)
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: '¡Categoria Actualizada!',
+                showConfirmButton: false,
+                timer: 1500
+              })
+        } else {
+            console.log("Hubo un error al actualizar")
+        }
+    })
 }

@@ -1,5 +1,6 @@
 let cerrar = document.querySelectorAll(".close")[0];
 let abrir = document.querySelectorAll(".cta")[0];
+
 let modal = document.querySelectorAll(".modal")[0];
 let modalC = document.querySelectorAll(".modal-container")[0];
 
@@ -31,3 +32,35 @@ window.addEventListener("click", function(e) {
     };
     
 });
+
+
+// modal para actualizar los registros
+let cerrarModal = document.querySelectorAll(".close-2")[0];
+let modalA = document.querySelectorAll(".modal-2")[0];
+let modalB = document.querySelectorAll(".modal-container-2")[0];
+
+cerrarModal.addEventListener("click", function() {
+    modalA.classList.toggle("modal-close-2");
+    setTimeout(function() {
+        modalB.style.opacity = "0";
+        modalB.style.visibility = "hidden";
+    }, 550);
+    
+});
+
+window.addEventListener("click", function(e) {
+    if (e.target == modalB) {
+        modalA.classList.toggle("modal-close-2");
+        setTimeout(function() {
+            modalB.style.opacity = "0";
+            modalB.style.visibility = "hidden";
+        }, 550);
+    };
+    
+});
+
+function abrirModal() {
+    modalB.style.opacity = "1";
+    modalB.style.visibility = "visible";
+    modalA.classList.toggle("modal-close-2");
+}
