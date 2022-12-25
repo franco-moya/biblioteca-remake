@@ -6,51 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="https://app.embed.im/snow.js"></script>
     <title>Inicio de sesión</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <style>
-        .contenedor {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .form {
-            width: 400px;
-            background-image: linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%);
-            display: flex;
-            flex-direction: column;
-            gap: .8rem;
-            padding: 3rem 2rem;
-            border-radius: .3rem;
-        }
-
-        .form input {
-            height: 2rem;
-            padding-inline: .5rem;
-            border-radius: .3rem;
-        }
-
-        .form button {
-            border-radius: .3rem;
-            height: 2rem;
-        }
-
-        .form button:active {
-            background-image: linear-gradient(-20deg, #ddd6f3 0%, #faaca8 100%, #faaca8 100%);
-        }
-    </style>
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="contenedor">
+        <img src="../img/logo-colegio-sin-fondo.png" alt="logo-colegio-ejercito-de-salvacion">
+        <h2>Biblioteca Digital</h2>
         <div class="form">
-            <h2>Inicia sesión</h2>
-            <label for="">Usuario</label>
-            <input type="text" name="usuario" id="usuario">
+            
+            <p>Inicia sesión</p>
+            <input type="text" name="usuario" id="usuario" placeholder="Usuario">
+            <input type="password" name="password" id="password" placeholder="Contraseña">
+            <button id="btn-validar">Ingresar</button>
 
-            <label for="">Contraseña</label>
-            <input type="password" name="password" id="password">
-
-            <button id="btn-validar">Validar usuario</button>
+            <a href="#">¿Olvidaste tu contraseña?</a>
         </div>
     </div>
     <script src="../js/validarUsuario.js"></script>
